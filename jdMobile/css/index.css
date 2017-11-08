@@ -1,0 +1,631 @@
+/* 布局 */
+a {
+  display: block;
+}
+.jdm {
+  width: 100%;
+  overflow: hidden;
+}
+/* 固定顶部 */
+.jdm_seach {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  /* padding-top: 5px; */
+  overflow: hidden;
+  box-sizing: border-box;
+  background-color: #c91523;
+  z-index: 10;
+}
+
+.jdm_seach .seach_box {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  padding-left: 75px;
+  padding-right: 50px;
+
+
+
+}
+
+
+.seach_box input {
+  width: 100%;
+  height: 30px;
+  border: 1px solid #f7f7f7;
+  margin-top: 4px;
+  box-sizing: border-box;
+  padding-left: 30px;
+  border-radius: 15px;
+  font-size: 14px;
+}
+
+.seach_box .fangda {
+  position: absolute;
+  left: 85px;
+  top: 10px;
+  width: 20px;
+  height: 20px;
+  background-image: url(../images/jd-sprites.png);
+  background-size: 200px 200px;
+  background-position: -60px -109px;
+
+}
+
+
+/* logo */
+.jdm_seach .jdm_logo {
+  position: absolute;
+  left: 8px;
+  top: 10px;
+  width: 56px;
+  height: 21px;
+  background-image: url(../images/jd-sprites.png);
+  background-size: 200px 200px;
+  background-position: 0px -109px;
+
+}
+
+/* 登录部分 */
+.jdm_seach .jdm_login {
+  position: absolute;
+  right: 8px;
+  top: 12px;
+  color: #fff;
+  font-size: 15px;
+
+}
+
+
+/* 主体 */
+.jdm .jdm_main {
+  margin-bottom: 50px;
+}
+
+
+
+/* 固定底部部分 */
+.jdm .jdm_foot {
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  height: 44px;
+  background-color: #fff;
+  overflow: hidden;
+  z-index: 10;
+
+}
+.jdm .jdm_foot ul {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+.jdm .jdm_foot li {
+  flex: 1;
+  height: 100%;
+}
+.jdm .jdm_foot li a {
+  display: block;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+}
+.jdm .jdm_foot li a img {
+  height: 100%;
+  width: auto;
+}
+
+
+
+/* ---------------主体部分------------- */
+/* 轮播图 */
+.jdm .lunbo {
+  width: 100%;
+}
+.jdm .lunbo ul {
+  width: 100%;
+  height: 100%;
+}
+.jdm .jdm_main .jdm_lunbo ul img {
+  width: 100%;
+  vertical-align: middle;
+}
+
+/* 导航部分 */
+.jdm_main .jdm_nav {
+  width: 100%;
+  background-color: #fff;
+  padding-bottom: 10px;
+  margin-bottom: 5px;
+}
+.jdm_main .jdm_nav ul {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.jdm_main .jdm_nav ul li {
+  width: 25%;
+  float: left;
+  margin-top: 10px;
+}
+.jdm_main .jdm_nav ul li a {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+.jdm_main .jdm_nav ul li img {
+  width: 40px;
+  height: 40px;
+}
+.jdm_main .jdm_nav ul li a b {
+  display: block;
+  font-weight: normal;
+  margin-top: 4px;
+}
+
+/* 掌上秒杀部分 */
+.seckill {
+  width: 100%;
+  padding: 0 10px;
+  box-sizing: border-box;
+  background-color: #fff;
+  padding-bottom: 10px;
+
+}
+.seckill .seckill_title {
+  width: 100%;
+  overflow: hidden;
+  padding: 10px 0;
+
+}
+
+
+.seckill .seckill_left {
+  float: left;
+  /* overflow: hidden; */
+  position: relative;
+}
+.seckill .seckill_right {
+  float: right;
+}
+.seckill .seckill_left i,.seckill .seckill_left h4 , .seckill .seckill_left .time {
+  float: left;
+}
+
+.seckill .seckill_left h4 {
+  height: 100%;
+  padding-left: 22px;
+  color: #CA1327;
+  font-size: 15px;
+  font-weight: normal;
+  margin-right: 5px;
+
+}
+.seckill .seckill_left h4:before {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 0px;
+  top: -7px;
+  width: 20px;
+  height: 26px;
+
+  background-image: url(../images/jd-sprites.png);
+  background-size: 200px 200px;
+  background-position: -84px -107px;
+}
+
+
+.seckill .seckill_left .time {
+  height: 100%;
+}
+
+.seckill .seckill_left .time span {
+  width: 10px;
+  height: 15px;
+  font-size: 12px;
+  background-color: #3d3d3d;
+  border-radius: 2px;
+  color: #fff;
+  padding: 0 2px;
+}
+.seckill .seckill_right a {
+  padding-right: 10px;
+  background: url("../images/icon-right.png") no-repeat right;
+  color: #666;
+}
+
+.seckill .seckill_main {
+  width: 100%;
+  overflow: hidden;
+}
+.seckill .seckill_main ul {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.seckill .seckill_main ul li {
+
+  flex: 1;
+  height: 100%;
+  padding: 0 10px;
+  text-align: center;
+}
+.seckill .seckill_main ul li img {
+  width: 100%;
+  margin-bottom: 8px;
+}
+.seckill .seckill_main ul li p {
+  color: #ed5657;
+  font-size: 14px;
+}
+.seckill .seckill_main ul li s {
+  display: block;
+  text-decoration: line-through;
+  font-size: 10px;
+  color: #888;
+  margin-top: 4px;
+}
+
+/* 会场部分 */
+.banner {
+  width: 100%;
+  position: relative;
+
+
+
+}
+.banner>img {
+  width: 100%;
+  height: 100%;
+}
+.banner ul {
+  position: absolute;
+  width: 100%;
+  bottom: 8px;
+  left: 0px;
+  box-sizing: border-box;
+  padding: 0 8px;
+}
+
+.banner ul li {
+  width: 50%;
+  height: 100%;
+  float: left;
+}
+.banner ul li img {
+  width: 100%;
+  margin-top: -2px;
+}
+
+/* 热卖排行 */
+.hot {
+  width: 100%;
+  background-color: #fff;
+}
+.hot .hot_top {
+  width: 100%;
+}
+.hot .hot_top ul {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+.hot .hot_top ul li {
+  flex: 1;
+}
+.hot .hot_top ul li img {
+  width: 100%;
+}
+.hot .hot_main {
+  width: 100%;
+}
+.hot .hot_main ul {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+.hot .hot_main ul li {
+  flex: 1;
+}
+.hot .hot_main ul li img {
+  width: 100%;
+}
+
+.hot .hot_bottom {
+  width: 100%;
+}
+.hot .hot_bottom ul {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+.hot .hot_bottom ul li {
+  flex: 1;
+}
+.hot .hot_bottom ul li img {
+  width: 100%;
+}
+/* 生活旅行 */
+.live {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+}
+.live a img {
+  width: 100%;
+
+}
+/* 特色超市 */
+.feature {
+  width: 100%;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+
+.feature h4 {
+  height: 34px;
+  line-height: 34px;
+  padding: 0 8px;
+  font-size: 16px;
+  color: #f25353;
+  font-weight: normal;
+}
+.feature .feature_top,.feature .feature_bottom {
+  width: 100%;
+}
+
+.feature ul {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.feature ul li {
+  width: 50%;
+  float: left;
+}
+.feature ul li img {
+  width: 100%;
+}
+
+/* 爆款洗衣液 */
+.hot_cake {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+}
+.hot_cake a img {
+  width: 100%;
+}
+
+/* 主题街 */
+.theme {
+  width: 100%;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+
+.theme h4 {
+  height: 34px;
+  line-height: 34px;
+  padding: 0 8px;
+  font-size: 16px;
+  color: #f25353;
+  font-weight: normal;
+}
+
+
+.theme .theme_top {
+  width: 100%;
+}
+
+.theme .theme_top ul {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.theme .theme_top ul li {
+  width: 50%;
+  float: left;
+}
+.theme .theme_top ul li img {
+  width: 100%;
+}
+.theme .theme_top ul li:last-child a+a {
+  width: 50%;
+  float: left;
+  display: inline-block;
+}
+.theme .theme_top ul li:last-child a+a img{
+  width: 100%;
+  margin-top: -4px;
+}
+
+
+.theme .theme_main,.theme .theme_bottom {
+  width: 100%;
+}
+
+
+.theme ul {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.theme ul li {
+  width: 25%;
+  float: left;
+}
+.theme ul li img {
+  width: 100%;
+}
+
+
+/* 奶粉专区 */
+.milk {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+}
+.milk a img {
+  width: 100%;
+}
+
+/* 品牌推荐 */
+.brand {
+  width: 100%;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+
+.brand h4 {
+  height: 34px;
+  line-height: 34px;
+  padding: 0 8px;
+  font-size: 16px;
+  color: #f25353;
+  font-weight: normal;
+}
+.brand .brand_main {
+  width: 100%;
+}
+.brand .brand_main ul {
+  width: 100%:
+  height:100%;
+  overflow: hidden;
+}
+.brand .brand_main ul li {
+  float: left;
+  height: 100%;
+}
+
+.brand .brand_main ul li:nth-child(1) {
+  width: 40%;
+}
+.brand .brand_main ul li+li {
+  width: 30%;
+}
+.brand .brand_main ul li img {
+  width: 100%;
+}
+
+/* 生鲜部分 */
+.seafood {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+}
+.seafood a img {
+  width: 100%;
+}
+
+
+/* 猜你喜欢部分 */
+.love {
+  width: 100%;
+  background-color: #fff;
+}
+
+.love .love_title {
+  width: 100%;
+  height: 34px;
+  padding: 0 8px;
+  box-sizing: border-box;
+  line-height: 34px;
+}
+
+.love .love_title h4 {
+  float: left;
+  font-size: 16px;
+  font-weight: normal;
+  color: #7F7F7F;
+}
+.love .love_title a {
+  float: right;
+  color: #f15353;
+  padding-right: 10px;
+  position: relative;
+}
+.love .love_title a:before {
+  content: '';
+  position: absolute;
+  top: 8px;
+  left: -22px;
+  display: block;
+  width: 18px;
+  height: 18px;
+  background-image: url("../images/icon-login.png");
+  background-size: 18px;
+
+}
+.love .love_title a:after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 14px;
+  right: -6px;
+  width: 12px;
+  height: 12px;
+  background-image: url(../images/icon-right.png);
+  background-repeat: no-repeat;
+  background-size: 4px 7px;
+}
+.love_main {
+  width: 100%;
+  margin-top: 10px;
+
+  box-sizing: border-box;
+}
+.love_main ul {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+.love_main ul li {
+  width: 50%;
+  float: left;
+  padding: 0 8px;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+}
+.love_main ul img {
+  width: 100%;
+}
+.love_main ul p {
+  width: 100%;
+  line-height: 18px;
+  margin-bottom: 8px;
+  display: -webkit-box;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+.love_main_bottom {
+  overflow: hidden;
+  border-top: 1px solid #ccc;
+  padding-top: 8px;
+}
+.love_main_bottom a {
+  display: inline-block;
+  float: right;
+  border: 1px solid #666;
+  border-radius: 5px;
+  padding: 4px;
+  color: #666;
+}
+.love_main_bottom span {
+  color: #c91523;
+  position: relative;
+  top: 4px;
+}
+

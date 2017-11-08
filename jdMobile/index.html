@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+  <title>京东</title>
+  <!-- 解决兼容性的css -->
+  <link rel="stylesheet" type="text/css" href="./css/normalize.css">
+  <!-- 初始化css -->
+  <link rel="stylesheet" type="text/css" href="./css/reset.css">
+  <!-- 引入主体样式 -->
+  <link rel="stylesheet" type="text/css" href="./css/index.css">
+  <!-- 引入标题logo -->
+  <link rel="shortcut icon" href="./favicon.ico">
+</head>
+<body>
+<!-- 布局容器 -->
+  <div class="jdm">
+  <!-- 顶部搜索部分 -->
+    <header class="jdm_seach">
+      <!-- logo部分 -->
+      <a href="javascript:;" class="jdm_logo"></a>
+      <!-- 搜索框 -->
+      <div class="seach_box">
+        <i class="fangda"></i>
+        <input type="text" placeholder="100万超级爆品疯抢">
+      </div>
+      <a href="javascript:;" class="jdm_login">登录</a>
+    </header>
+
+    <!-- 主体 -->
+    <main class="jdm_main">
+      <!-- 1.轮播图 -->
+      <div class="jdm_lunbo">
+        <ul>
+          <li><a href="javascript:;"><img src="./upload/slide_1.jpg" alt="" /></a></li>
+        </ul>
+      </div>
+      <!-- 2.导航 -->
+      <nav class="jdm_nav">
+        <ul>
+          <li><a href="javascript:;"><img src="./images/nav_1.png" alt="" /><b>京东超市</b></a></li>
+          <li><a href="javascript:;"><img src="./images/nav_2.png" alt="" /><b>全球购</b></a></li>
+          <li><a href="javascript:;"><img src="./images/nav_3.png" alt="" /><b>充值中心</b></a></li>
+          <li><a href="javascript:;"><img src="./images/nav_4.png" alt="" /><b>服装城</b></a></li>
+          <li><a href="javascript:;"><img src="./images/nav_5.png" alt="" /><b>理财</b></a></li>
+          <li><a href="javascript:;"><img src="./images/nav_6.png" alt="" /><b>领券</b></a></li>
+          <li><a href="javascript:;"><img src="./images/nav_7.png" alt="" /><b>物流查询</b></a></li>
+          <li><a href="javascript:;"><img src="./images/nav_8.png" alt="" /><b>我的关注</b></a></li>
+        </ul>
+      </nav>
+      <!-- 3.秒杀 -->
+      <div class="seckill">
+       <div class="seckill_title">
+          <div class="seckill_left">
+
+          <h4>掌上秒杀</h4>
+          <div class="time">
+            <span>02</span>
+            <b> : </b>
+            <span>56</span>
+            <b> : </b>
+            <span>42</span>
+          </div>
+        </div>
+        <div class="seckill_right">
+          <a href="javascript:;">更多秒杀</a>
+        </div>
+       </div>
+        <div class="seckill_main">
+          <ul>
+            <li><a href="javascript:;">
+                <img src="./upload/seckill_1.jpg" alt="" />
+                <p>¥79</p>
+                <s>¥138</s>
+              </a></li>
+            <li><a href="javascript:;">
+                <img src="./upload/seckill_2.jpg" alt="" />
+                <p>¥169</p>
+                <s>¥238</s>
+              </a></li>
+            <li><a href="javascript:;">
+                <img src="./upload/seckill_3.jpg" alt="" />
+                <p>¥179</p>
+                <s>¥108</s>
+              </a></li>
+          </ul>
+        </div>
+      </div>
+      <!-- 4.会场 -->
+      <div class="banner">
+        <img src="./upload/banner_bg.jpg" alt="">
+          <ul>
+            <li><a href="javascript:;"><img src="./upload/banner_1.jpg" alt=""></a></li>
+            <li><a href="javascript:;"><img src="./upload/banner_2.jpg" alt="" /></a><a href="javascript:;"><img src="./upload/banner_3.jpg" alt="" /></a></li>
+
+          </ul>
+      </div>
+      <!-- 5.热卖 -->
+      <div class="hot">
+        <div class="hot_top">
+          <ul>
+            <li><a href="javascript:;"><img src="./upload/major_1.jpg" alt="" /></a></li>
+            <li><a href="javascript:;"><img src="./upload/major_2.jpg" alt="" /></a></li>
+            <li><a href="javascript:;"><img src="./upload/major_3.jpg" alt="" /></a></li>
+          </ul>
+        </div>
+        <div class="hot_main">
+           <ul>
+              <li><a href="javascript:;"><img src="./upload/major_4.jpg" alt="" /></a></li>
+              <li><a href="javascript:;"><img src="./upload/major_5.jpg" alt="" /></a></li>
+            </ul>
+        </div>
+        <div class="hot_bottom">
+           <ul>
+              <li><a href="javascript:;"><img src="./upload/major_6.jpg" alt="" /></a></li>
+              <li><a href="javascript:;"><img src="./upload/major_7.jpg" alt="" /></a></li>
+            </ul>
+        </div>
+      </div>
+      <!-- 6.广告 -->
+      <div class="live">
+        <a href="javascript:;"><img src="./upload/advert_1.jpg" alt="" /></a>
+      </div>
+      <!-- 7.特色超市 -->
+      <div class="feature">
+        <h4>特色超市</h4>
+        <div class="feature_top">
+          <ul>
+            <li><a href="javascript:;"><img src="./upload/market_1.jpg" alt=""></a></li>
+            <li>
+              <a href="javascript:;"><img src="./upload/market_2.jpg" alt=""></a>
+              <a href="javascript:;"><img src="./upload/market_3.jpg" alt=""></a>
+            </li>
+          </ul>
+        </div>
+        <div class="feature_bottom">
+          <ul>
+            <li><a href="javascript:;"><img src="./upload/market_4.jpg" alt=""></a></li>
+            <li>
+              <a href="javascript:;"><img src="./upload/market_5.jpg" alt=""></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- 8.广告 -->
+      <div class="hot_cake">
+        <a href="javascript:;"><img src="./upload/advert_3.jpg" alt="" /></a>
+      </div>
+      <!-- 9.主题街 -->
+       <div class="theme">
+        <h4>主题街</h4>
+        <div class="theme_top">
+          <ul>
+            <li><a href="javascript:;"><img src="./upload/theme_1.jpg" alt=""></a></li>
+            <li>
+              <a href="javascript:;"><img src="./upload/theme_2.jpg" alt=""></a>
+              <a href="javascript:;"><img src="./upload/theme_3.jpg" alt=""></a>
+              <a href="javascript:;"><img src="./upload/theme_4.jpg" alt=""></a>
+            </li>
+          </ul>
+        </div>
+        <div class="theme_main">
+          <ul>
+            <li><a href="javascript:;"><img src="./upload/theme_5.jpg" alt=""></a></li>
+            <li>
+              <a href="javascript:;"><img src="./upload/theme_6.jpg" alt=""></a>
+            </li>
+             <li><a href="javascript:;"><img src="./upload/theme_7.jpg" alt=""></a></li>
+            <li>
+              <a href="javascript:;"><img src="./upload/theme_8.jpg" alt=""></a>
+            </li>
+          </ul>
+        </div>
+        <div class="theme_bottom">
+          <ul>
+            <li><a href="javascript:;"><img src="./upload/theme_9.jpg" alt=""></a></li>
+            <li>
+              <a href="javascript:;"><img src="./upload/theme_10.jpg" alt=""></a>
+            </li>
+             <li><a href="javascript:;"><img src="./upload/theme_11.jpg" alt=""></a></li>
+            <li>
+              <a href="javascript:;"><img src="./upload/theme_12.jpg" alt=""></a>
+            </li>
+          </ul>
+        </div>
+
+
+
+
+
+        </div>
+
+      <!-- 10.广告 -->
+      <div class="milk">
+        <a href="javascript:;"><img src="./upload/advert_4.jpg" alt="" /></a>
+      </div>
+      <!-- 11.品牌推荐 -->
+      <div class="brand">
+        <h4>品牌推荐</h4>
+        <div class="brand_main">
+          <ul>
+            <li><a href="javascript:;"><img src="./upload/brand_1.jpg" alt=""></a></li>
+            <li>
+              <a href="javascript:;"><img src="./upload/brand_2.jpg" alt=""></a>
+            </li>
+            <li>
+              <a href="javascript:;"><img src="./upload/brand_3.jpg" alt=""></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- 12.广告 -->
+      <div class="seafood">
+        <a href="javascript:;"><img src="./upload/advert_7.jpg" alt="" /></a>
+      </div>
+      <!-- 13.猜你喜欢 -->
+      <div class="love">
+        <div class="love_title">
+          <h4>猜你喜欢</h4>
+          <a href="javascript:;">登陆后更懂你</a>
+        </div>
+        <div class="love_main">
+          <ul>
+            <li>
+              <a href="javascript:;">
+                <img src="./upload/item_1.jpg" alt="">
+              </a>
+              <p>曼秀雷敦（Mentholatum）控油抗痘洁面乳150ml（男士洗面奶 洁面 控油）</p>
+              <div class="love_main_bottom">
+                <span>¥ 25.20</span>
+                <a href="javascript:;">
+                  看相似
+                </a>
+              </div>
+            </li>
+            <li>
+              <a href="javascript:;">
+                <img src="./upload/item_2.jpg" alt="">
+              </a>
+              <p>曼秀雷敦（Mentholatum）控油抗痘洁面乳150ml（男士洗面奶 洁面 控油）</p>
+              <div class="love_main_bottom">
+                <span>¥ 25.20</span>
+                <a href="javascript:;">
+                  看相似
+                </a>
+              </div>
+            </li>
+            <li>
+              <a href="javascript:;">
+                <img src="./upload/item_3.jpg" alt="">
+              </a>
+              <p>曼秀雷敦（Mentholatum）控油抗痘洁面乳150ml（男士洗面奶 洁面 控油）</p>
+              <div class="love_main_bottom">
+                <span>¥ 25.20</span>
+                <a href="javascript:;">
+                  看相似
+                </a>
+              </div>
+            </li>
+            <li>
+              <a href="javascript:;">
+                <img src="./upload/item_4.jpg" alt="">
+              </a>
+              <p>曼秀雷敦（Mentholatum）控油抗痘洁面乳150ml（男士洗面奶 洁面 控油）</p>
+              <div class="love_main_bottom">
+                <span>¥ 25.20</span>
+                <a href="javascript:;">
+                  看相似
+                </a>
+              </div>
+            </li>
+            <li>
+              <a href="javascript:;">
+                <img src="./upload/item_5.jpg" alt="">
+              </a>
+              <p>曼秀雷敦（Mentholatum）控油抗痘洁面乳150ml（男士洗面奶 洁面 控油）</p>
+              <div class="love_main_bottom">
+                <span>¥ 25.20</span>
+                <a href="javascript:;">
+                  看相似
+                </a>
+              </div>
+            </li>
+            <li>
+              <a href="javascript:;">
+                <img src="./upload/item_6.jpg" alt="">
+              </a>
+              <p>曼秀雷敦（Mentholatum）控油抗痘洁面乳150ml（男士洗面奶 洁面 控油）</p>
+              <div class="love_main_bottom">
+                <span>¥ 25.20</span>
+                <a href="javascript:;">
+                  看相似
+                </a>
+              </div>
+            </li>
+            <li>
+              <a href="javascript:;">
+                <img src="./upload/item_7.jpg" alt="">
+              </a>
+              <p>曼秀雷敦（Mentholatum）控油抗痘洁面乳150ml（男士洗面奶 洁面 控油）</p>
+              <div class="love_main_bottom">
+                <span>¥ 25.20</span>
+                <a href="javascript:;">
+                  看相似
+                </a>
+              </div>
+            </li>
+            <li>
+              <a href="javascript:;">
+                <img src="./upload/item_8.jpg" alt="">
+              </a>
+              <p>曼秀雷敦（Mentholatum）控油抗痘洁面乳150ml（男士洗面奶 洁面 控油）</p>
+              <div class="love_main_bottom">
+                <span>¥ 25.20</span>
+                <a href="javascript:;">
+                  看相似
+                </a>
+              </div>
+            </li>
+            <li>
+              <a href="javascript:;">
+                <img src="./upload/item_9.jpg" alt="">
+              </a>
+              <p>曼秀雷敦（Mentholatum）控油抗痘洁面乳150ml（男士洗面奶 洁面 控油）</p>
+              <div class="love_main_bottom">
+                <span>¥ 25.20</span>
+                <a href="javascript:;">
+                  看相似
+                </a>
+              </div>
+            </li>
+            <li>
+              <a href="javascript:;">
+                <img src="./upload/item_10.jpg" alt="">
+              </a>
+              <p>曼秀雷敦（Mentholatum）控油抗痘洁面乳150ml（男士洗面奶 洁面 控油）</p>
+              <div class="love_main_bottom">
+                <span>¥ 25.20</span>
+                <a href="javascript:;">
+                  看相似
+                </a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+
+
+
+
+
+      <!-- 14.底部 -->
+    </main>
+
+    <!-- 底部工具栏 -->
+    <footer class="jdm_foot">
+      <ul>
+        <li><a href="javascript:;"><img src="./images/index-icon.png" alt="" /></a></li>
+        <li><a href="javascript:;"><img src="./images/sort-icon.png" alt="" /></a></li>
+        <li><a href="javascript:;"><img src="./images/618-icon.png" alt="" /></a></li>
+        <li><a href="javascript:;"><img src="./images/cart-icon.png" alt="" /></a></li>
+        <li><a href="javascript:;"><img src="./images/center-icon.png" alt="" /></a></li>
+      </ul>
+    </footer>
+
+
+
+
+
+
+
+  </div>
+</body>
+</html>
