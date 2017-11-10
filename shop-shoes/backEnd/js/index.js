@@ -55,8 +55,8 @@ var secondEcharts = echarts.init(document.getElementById('main1'));
 
 secondOption = {
     title : {
-        text: '某站点用户访问来源',
-        subtext: '纯属虚构',
+        text: '热门品牌销售店',
+        subtext: '2017年6月',
         x:'center'
     },
     tooltip : {

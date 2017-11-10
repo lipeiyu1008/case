@@ -7,7 +7,8 @@ a {
     display: inline-block;
 }
 a:hover,
-a:active {
+a:active,
+a:focus {
     text-decoration: none;
 }
 /* 侧边栏 */
@@ -57,7 +58,9 @@ a:active {
     width: 100%;
 }
 .lt-aside .menu li > a {
+    width: 100%;
     padding-left: 30px;
+    border: 3px solid transparent;
     height: 40px;
     line-height: 40px;
     color: #aaa;
@@ -75,6 +78,49 @@ a:active {
     padding-left: 50px;
     
 } 
+/* 进入用户管理分页,标签高亮 --------------------*/
+.lt-aside .menu li.now > a {
+    border-left-color: #3c8dbc;
+    background-color: #1d1f21;
+}
+/* 进入一级分类样式设置--------------------------- */
+
+/* 进入一级分类标签高亮 */
+.lt-aside .menu li.now .highlight {
+    color: #fff;
+}
+/* 进入一级分类,让下拉列表显示 */
+.lt-aside .menu li.now .child {
+    display: block;
+}
+
+
+/* 添加分类按钮 */
+.lt-section .container-fluid button.one-fenlei {
+    background-color: #fff;
+    border: 1px solid #ccc;
+}
+.lt-section .container-fluid button.one-fenlei:hover {
+    background-color: #ccc;
+}
+/* 修改弹出框高度 */
+.lt-section .container-fluid .one-classify {
+    margin-top: -20px;
+}
+
+/* 二级分类页面文件标签隐藏 */
+.lt-section .container-fluid .second_file {
+    width: 82px;
+    height: 34px;
+    position: absolute;
+    opacity: 0;
+}
+
+
+/* 外下边距20px */
+.mar_bottom {
+    margin-bottom: 15px;
+}
 
 
 
@@ -97,19 +143,31 @@ a:active {
     background-color: #3c8dbc;
     margin-bottom: 20px;
 }
+.lt-section .lt_nav a i {
+    font-size: 16px;
+}
 .lt-section .lt_nav a:first-child {
     float: left;
     color: #fff;
     line-height: 50px;
     margin-left: 15px;
 }
-.lt-section .lt_nav a:last-child {
+.lt-section .lt_nav a:nth-child(2) {
     float: right;
     color: #fff;
     line-height: 50px;
     margin-right: 15px;
 }
-
+/* 退出登录确定按钮样式 */
+#myModal a.login {
+    margin: 0 6px;
+    padding: 0;
+    border: none;
+    width: 54px;
+    height: 34px;
+    box-sizing: border-box;
+    line-height: 34px;
+}
 /* 主体线图 */
 .lt-section .lt-canvas .picTable {
     float: left;

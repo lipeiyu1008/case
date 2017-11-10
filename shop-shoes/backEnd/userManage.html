@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>乐淘云购后台管理系统-首页</title>
+    <title>乐淘后台管理系统-用户管理</title>
     <!-- 引入bootstrap -->
     <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.min.css">
     <!-- 引入NProgress -->
@@ -34,8 +34,8 @@
         <!-- 菜单 -->
         <div class="menu">
             <ul>
-                <li>
-                    <a href="./userManage.html">
+                <li class="now">
+                    <a href="./userManage.html" class="highlight">
                         <i class="glyphicon glyphicon-user"></i>
                         用户管理
                     </a>
@@ -70,46 +70,60 @@
             </a>
             <a data-logout data-toggle="modal" href="#myModal">
                 <i class="glyphicon glyphicon-log-out">
-                    
+
                 </i>
             </a>
 
             <div class="modal fade" id="myModal" tabindex="-1">
                 <div class="modal-dialog modal-sm">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                      <h4 class="modal-title" id="myModalLabel">温馨提示</h4>
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title" id="myModalLabel">温馨提示</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p class="alert alert-danger">
+                                <i class="glyphicon glyphicon-info-sign"></i>您确定要退出后台管理系统吗？
+                            </p>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                            <a href="http://localhost:3000/" class="btn btn-primary login">确定</a>
+                        </div>
                     </div>
-                    <div class="modal-body">
-                      <p class="alert alert-danger">
-                        <i class="glyphicon glyphicon-info-sign"></i>您确定要退出后台管理系统吗？
-                      </p>
-            
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                      <a href="http://localhost:3000/" class="btn btn-primary login">确定</a>
-                    </div>
-                  </div>
                 </div>
-              </div>
+            </div>
         </div>
         <!-- 主体 -->
         <div class="container-fluid">
             <!-- 管理系统 -->
             <ol class="breadcrumb">
                 <li>
-                    <a href="#">管理系统</a>
+                    <a href="./index.html">管理系统</a>
                 </li>
-                <li class="active">首页</li>
+                <li class="active">用户管理</li>
             </ol>
-            <div class="lt-canvas">
-                <div id= "main" class="picTable"></div>
-                <div id= "main1" class="picTable"></div>
+            <!-- 表格 -->
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th class="text-center" width="10%">序号</th>
+                            <th class="text-center" width="30%">用户名</th>
+                            <th class="text-center" width="30%">手机号</th>
+                            <th class="text-center" width="20%">状态</th>
+                            <th class="text-center">操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                    </tbody>
+                </table>
             </div>
+
         </div>
     </section>
     <!-- 弹出框 -->

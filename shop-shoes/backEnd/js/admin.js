@@ -22,7 +22,10 @@ $('[data-menu]').on('click', function() {
 //3.点击分类,滑出菜单
 $('.lt-aside .menu').on('click','[href="javascript:;"]', function() {
     var _this = $(this);
-    var child = _this.siblings();
+    var child = _this.siblings('div');
     child.slideToggle();
     
 })
+
+
+
