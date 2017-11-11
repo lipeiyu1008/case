@@ -74,7 +74,7 @@
                 </i>
             </a>
 
-            <div class="modal fade" id="myModal" tabindex="-1">
+            <div class="modal fade" id="manage-modal" tabindex="-1">
                 <div class="modal-dialog modal-sm">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -85,13 +85,15 @@
                         </div>
                         <div class="modal-body">
                             <p class="alert alert-danger">
-                                <i class="glyphicon glyphicon-info-sign"></i>您确定要退出后台管理系统吗？
+                                <!-- <i class="glyphicon glyphicon-info-sign"></i>您确定要退出后台管理系统吗？ -->
                             </p>
 
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                            <a href="http://localhost:3000/" class="btn btn-primary login">确定</a>
+                            <!-- <a href="http://localhost:3000/" class="btn btn-primary login">确定</a> -->
+
+                            <button type="button" class="btn btn-primary">确定</button>
                         </div>
                     </div>
                 </div>
@@ -107,7 +109,7 @@
                 <li class="active">用户管理</li>
             </ol>
             <!-- 表格 -->
-            <div class="table-responsive">
+            <div class="lt-content">
                 <table class="table table-bordered table-hover">
                     <thead>
                         <tr>
@@ -119,14 +121,47 @@
                         </tr>
                     </thead>
                     <tbody>
+                       
                         
                     </tbody>
                 </table>
+
+                <div class="page">
+                    <ul class="pagination"></ul>
+                </div>
+
             </div>
+
+            
 
         </div>
     </section>
     <!-- 弹出框 -->
+
+    <!-- 模板 -->
+    <script type="text/template" id="userManage-template">
+
+        <%for(var i =0 ; i < rows.length; i++) {%>
+            <tr class="text-center">
+                <td><%=(page-1)*size+i+1%></td>
+                <td><%=rows[i].username%></td>
+                <td><%=rows[i].mobile%></td>
+                <td><%=rows[i].isDelete == 1 ? '禁用' : '正常'%></td>
+                <td>
+                    <%if(rows[i].isDelete == 1) {%>
+                        <a data-id="<%=rows[i].id%>" data-name="<%=rows[i].username%>"  href="#manage-modal" data-toggle="modal" class="btn btn-primary">启用</a>
+                    <%}else {%>
+                        <a data-id="<%=rows[i].id%>" data-name="<%=rows[i].username%>" href="#manage-modal" data-toggle="modal" class="btn btn-danger">禁用</a>
+                    <%}%>
+                </td>
+            </tr>
+            <%}%>
+
+
+                       
+    </script>
+
+
 
 
 
@@ -135,16 +170,16 @@
     <script src="./lib/jquery/jquery.min.js"></script>
     <!-- 引入bootstrap的插件 -->
     <script src="./lib/bootstrap/js/bootstrap.min.js"></script>
-    <!-- 引入echarts -->
-    <script src="./lib/echarts/echarts.min.js"></script>
+    <!-- 引入template -->
+    <script src="./lib/artTemplate/template-native.js"></script>
     <!-- 引入表单验证插件 -->
     <script src="./lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
+    <!-- 引入分页插件 -->
+    <script src="./lib/bootstrap-paginator/bootstrap-paginator.min.js"></script>
     <!-- 引入进度条插件 -->
     <script src="./lib/nprogress/nprogress.js"></script>
-    <!-- 引入admin -->
-    <script src="./js/admin.js"></script>
-    <!-- 引入index.js -->
-    <script src="./js/index.js"></script>
+   <!-- 引入用户管理js -->
+   <script src="./js/userManage.js"></script>
 </body>
 
 </html>

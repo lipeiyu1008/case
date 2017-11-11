@@ -27,5 +27,21 @@ $('.lt-aside .menu').on('click','[href="javascript:;"]', function() {
     
 })
 
-
+// 4.发起ajax请求
+$('#myModal').on('click',function() {
+    $.ajax({
+        type:'get',
+        url:'/employee/employeeLogout',
+        data:{},
+        dataType:'json',
+        success:function(data) {
+            // 设置延迟时间
+            setTimeout(function() {
+                if(data.success) {
+                    location.href = 'login.html';
+                }
+            },500)
+        }
+    })
+})
 
