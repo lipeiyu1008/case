@@ -108,7 +108,7 @@
             </ol>
 
             <!-- 添加分类部分 -->
-            <button type="button" class="btn one-fenlei mar_bottom" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">商品管理</button>
+            <button type="button" class="btn one-fenlei mar_bottom" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">添加商品</button>
             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
                 <div class="modal-dialog">
                     <div class="modal-content">
@@ -119,40 +119,42 @@
                             <h4 class="modal-title" id="exampleModalLabel">编辑商品</h4>
                         </div>
                         <div class="modal-body">
-                            <form>
+                            <form id="productform">
                                 <div class="form-group one-classify">
-                                    <label for="recipient-name" class="control-label"></label>
-                                    <input type="text" class="form-control" id="recipient-name" placeholder="请输入商品名称">
+                                    <label for="proName" class="control-label"></label>
+                                    <input type="text" class="form-control" name="proName" id="proName" placeholder="请输入商品名称">
                                 </div>
                                 <div class="form-group one-classify">
-                                    <label for="message-text" class="control-label"></label>
-                                    <textarea class="form-control" id="message-text" placeholder="请输入商品描述"></textarea>
+                                    <label for="proDesc" class="control-label"></label>
+                                    <textarea class="form-control" name="proDesc" id="proDesc" placeholder="请输入商品描述"></textarea>
                                 </div>
                                 <div class="form-group one-classify">
-                                    <label for="recipient-name" class="control-label"></label>
-                                    <input type="text" class="form-control" id="recipient-repertory" placeholder="请输入商品库存">
+                                    <label for="num" class="control-label"></label>
+                                    <input type="text" class="form-control" name="num" id="num" placeholder="请输入商品库存">
                                 </div>
                                 <div class="form-group one-classify">
-                                    <label for="recipient-name" class="control-label"></label>
-                                    <input type="text" class="form-control" id="recipient-price" placeholder="请输入商品价格">
+                                    <label for="price" class="control-label"></label>
+                                    <input type="text" class="form-control" name="price" id="price" placeholder="请输入商品价格">
                                 </div>
                                 <div class="form-group one-classify">
-                                    <label for="recipient-name" class="control-label"></label>
-                                    <input type="text" class="form-control" id="recipient-former" placeholder="请输入商品原价">
+                                    <label for="oldPrice" class="control-label"></label>
+                                    <input type="text" class="form-control" name="oldPrice" id="oldPrice" placeholder="请输入商品原价">
                                 </div>
                                 <div class="form-group one-classify">
-                                    <label for="recipient-name" class="control-label"></label>
-                                    <input type="text" class="form-control" id="recipient-size" placeholder="请输入商品尺码">
+                                    <label for="size" class="control-label"></label>
+                                    <input type="text" class="form-control" name="size" id="size" placeholder="请输入商品尺码">
                                 </div>
 
                                 <!-- 上传图片控件 -->
                                 <div class="form-group">
-                                    <input type="hidden" name="brandLogo">
+                                    
 
                                     <div class="fileupload">
-                                        <input type="file" name="pic1" data-url="/category/addSecondCategoryPic" class="btn btn-default second_file">
+                                        <label class="sr-only" for="pic"></label>
+                                        <input type="file" name="pic1" id="pic" class="btn btn-default second_file">
                                         <a href="javascript:;" class="btn btn-default">上传图片</a>
                                         <span>提示&nbsp;:&nbsp;必须上传三张图片</span>
+                                        
                                     </div>
                                 </div>
 
@@ -161,7 +163,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                            <button type="button" class="btn btn-primary">确定</button>
+                            <button type="submit" class="btn btn-primary" form="productform">确定</button>
                         </div>
                     </div>
                 </div>
@@ -174,11 +176,11 @@
                     <thead>
                         <tr>
                             <th class="text-center" width="5%">序号</th>
-                            <th class="text-center" width="25%">商品名称</th>
-                            <th class="text-center" width="25%">商品描述</th>
-                            <th class="text-center" width="10%">商品库存</th>
-                            <th class="text-center" width="10%">商品尺寸</th>
-                            <th class="text-center" width="10%">商品状态</th>
+                            <th class="text-center">商品名称</th>
+                            <th class="text-center">商品描述</th>
+                            <th class="text-center">商品库存</th>
+                            <th class="text-center">商品尺寸</th>
+                            <th class="text-center">商品状态</th>
                             <th class="text-center">操作</th>
                         </tr>
                     </thead>
@@ -186,13 +188,43 @@
 
                     </tbody>
                 </table>
+                <div class="page">
+                    <ul class="pagination"></ul>
+                </div>
             </div>
 
 
         </div>
     </section>
     <!-- 弹出框 -->
-
+    <script type="text/template" id="prodTemplate">
+        <%for(var i = 0; i < rows.length; i++) {%>
+            <tr class="text-center">
+                <td>
+                    <%=(page - 1) *size +i +1%>
+                </td>
+                <td>
+                    <%=rows[i].proName%>
+                </td>
+                <td>
+                    <%=rows[i].proDesc%>
+                </td>
+                <td>
+                    <%=rows[i].num%>
+                </td>
+                <td>
+                    <%=rows[i].size%>
+                </td>
+                <td>
+                    <%=rows[i].statu==1 ? '已上架': '下架'%>
+                </td>
+                <td>
+                    <a href="javascript:;" class="btn btn-danger">下架</a>
+                    <a href="javascript:;" class="btn btn-primary">编辑</a>
+                </td>
+            </tr>
+            <%}%>
+    </script>
 
 
 
@@ -200,16 +232,23 @@
     <script src="./lib/jquery/jquery.min.js"></script>
     <!-- 引入bootstrap的插件 -->
     <script src="./lib/bootstrap/js/bootstrap.min.js"></script>
-    <!-- 引入echarts -->
-    <script src="./lib/echarts/echarts.min.js"></script>
+
     <!-- 引入表单验证插件 -->
     <script src="./lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
     <!-- 引入进度条插件 -->
     <script src="./lib/nprogress/nprogress.js"></script>
-    <!-- 引入admin -->
+    <!-- 引入product   js -->
+    <script src="./js/productManage.js"></script>
+    <!-- 引入模板插件 -->
+    <script src="./lib/artTemplate/template-native.js"></script>
+    <!-- 引入分页插件 -->
+    <script src="./lib/bootstrap-paginator/bootstrap-paginator.min.js"></script>
     <script src="./js/admin.js"></script>
-    <!-- 引入index.js -->
-    <script src="./js/index.js"></script>
+
+    <script src="./lib/jquery-fileupload/jquery.ui.widget.js"></script>
+    <script src="./lib/jquery-fileupload/jquery.fileupload.js"></script>
+
+
 </body>
 
 </html>

@@ -120,7 +120,12 @@
                             <h4 class="modal-title" id="exampleModalLabel">添加分类</h4>
                         </div>
                         <div class="modal-body">
-                            <form>
+                            <form id="secondform">
+
+
+
+
+
                                 <!-- 下拉框 -->
                                 <div class="form-group">
                                     <div class="pull-down">
@@ -129,16 +134,17 @@
                                         <div class="btn-group">
 
                                             <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                请选择
+                                                <span class="default">女士馆</span>
                                                 <span class="caret"></span>
                                             </button>
                                             <ul class="dropdown-menu">
 
-                                                <li>
-                                                    <a href="#">游泳馆</a>
-                                                </li>
+
 
                                             </ul>
+
+                                            <!-- 分类隐藏域 -->
+                                            <input id="categoryId" type="hidden" name="categoryId">
                                         </div>
 
                                     </div>
@@ -146,21 +152,23 @@
 
                                 <!-- 输入框 -->
                                 <div class="form-group one-classify">
-                                    <label for="recipient-name" class="control-label"></label>
-                                    <input type="text" class="form-control" id="recipient-name" placeholder="请输入一级分类名称">
+                                    <label for="brandName" class="control-label"></label>
+                                    <input type="text" name="brandName" class="form-control" id="brandName" placeholder="请输入二级分类名称">
                                 </div>
 
                                 <div class="form-group">
-                                    <input type="hidden" name="brandLogo">
-                                    
+
+
                                     <div class="fileupload">
-                                        <input type="file" name="pic1" data-url="/category/addSecondCategoryPic" class="btn btn-default second_file">
+                                        <input type="hidden" id="brandLogo" name="brandLogo">
+                                        <input type="file" name="pic1" id="secondupload" class="btn btn-default second_file">
                                         <a href="javascript:;" class="btn btn-default">上传图片</a>
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <img width="100" height="100" src="images/none.png" alt="">
+                                <div class="previewimg">
+                                    <img width="100" height="100" id="previewimg" src="images/none.png" alt="">
                                 </div>
+
 
 
 
@@ -168,7 +176,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                            <button type="button" class="btn btn-primary">确定</button>
+                            <button type="submit" class="btn btn-primary" form="secondform">确定</button>
                         </div>
                     </div>
                 </div>
@@ -190,14 +198,42 @@
                     <tbody>
 
                     </tbody>
+
                 </table>
+
+
+                <div class="page">
+                    <ul class="pagination"></ul>
+                </div>
+
+
             </div>
 
 
         </div>
     </section>
     <!-- 弹出框 -->
+    <script type="text/template" id="secondTemplate">
 
+        <%for(var i=0; i<rows.length; i++) {%>
+            <tr class="text-center">
+                <td>
+                    <%=(page-1) * size +i +1%>
+                </td>
+                <td>
+                    <%=rows[i].categoryName%>
+                </td>
+                <td>
+                    <%=rows[i].brandName%>
+                </td>
+                <td>
+                    <img height="30" src="<%=rows[i].brandLogo%>" alt="">
+                </td>
+            </tr>
+            <%}%>
+
+
+    </script>
 
 
 
@@ -206,15 +242,29 @@
     <!-- 引入bootstrap的插件 -->
     <script src="./lib/bootstrap/js/bootstrap.min.js"></script>
     <!-- 引入echarts -->
-    <script src="./lib/echarts/echarts.min.js"></script>
+    <!-- <script src="./lib/echarts/echarts.min.js"></script> -->
+
+    <!-- 引入模板 -->
+    <script src="./lib/artTemplate/template-native.js"></script>
+
     <!-- 引入表单验证插件 -->
     <script src="./lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
     <!-- 引入进度条插件 -->
     <script src="./lib/nprogress/nprogress.js"></script>
     <!-- 引入admin -->
     <script src="./js/admin.js"></script>
-    <!-- 引入index.js -->
-    <script src="./js/index.js"></script>
+
+    <script src="./js/categorySecond.js"></script>
+    <!-- 引入分页插件 -->
+    <script src="./lib/bootstrap-paginator/bootstrap-paginator.min.js"></script>
+
+    <!-- 引入上传插件 -->
+    <script src="./lib/jquery-fileupload/jquery.ui.widget.js"></script>
+    <script src="./lib/jquery-fileupload/jquery.fileupload.js"></script>
+
+
+
+
 </body>
 
 </html>

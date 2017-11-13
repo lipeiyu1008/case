@@ -28,7 +28,7 @@ $('.lt-aside .menu').on('click','[href="javascript:;"]', function() {
 })
 
 // 4.发起ajax请求
-$('#myModal').on('click',function() {
+$('#myModal').on('click','.btn-primary',function() {
     $.ajax({
         type:'get',
         url:'/employee/employeeLogout',

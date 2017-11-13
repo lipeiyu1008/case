@@ -68,7 +68,7 @@
             <a data-menu href="javascript:;">
                 <i class="glyphicon glyphicon-align-justify"></i>
             </a>
-            <a data-logout data-toggle="modal" href="#myModal">
+            <a data-logout href="#">
                 <i class="glyphicon glyphicon-log-out">
 
                 </i>
@@ -91,7 +91,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                            <a href="http://localhost:3000/" class="btn btn-primary login">确定</a>
+                            <button type="button" class="btn btn-primary">确定</button>
                         </div>
                     </div>
                 </div>
@@ -129,7 +129,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                            <button type="button" class="btn btn-primary">确定</button>
+                            <button type="submit" class="btn btn-primary">确定</button>
                         </div>
                     </div>
                 </div>
@@ -146,7 +146,10 @@
                         </tr>
                     </thead>
                     <tbody>
-                        
+                        <tr class="text-center">
+                            <td>1</td>
+                            <td>户外管</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -154,8 +157,7 @@
 
         </div>
     </section>
-    <!-- 弹出框 -->
-
+    
 
 
 
@@ -169,10 +171,9 @@
     <script src="./lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
     <!-- 引入进度条插件 -->
     <script src="./lib/nprogress/nprogress.js"></script>
-    <!-- 引入admin -->
-    <script src="./js/admin.js"></script>
-    <!-- 引入index.js -->
-    <script src="./js/index.js"></script>
+    <!-- 引入一级分类js -->
+    <script src="./js/categoryFirst.js"></script>
+   
 </body>
 
 </html>
