@@ -1,0 +1,254 @@
+html,body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    
+}
+
+
+body {
+    background-color: #fff;
+
+}
+ul,ol,p,span,a,i,b,img {
+    margin: 0;
+    padding: 0;
+}
+ul,ol {
+    list-style: none;
+}
+a {
+    display: inline-block;
+}
+a,
+a:hover,
+a:active{
+    text-decoration: none;
+}
+
+
+/* 头部固定 */
+.lt-topBar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    background-color: #006699;
+    z-index: 10;
+}
+.lt-topBar span {
+    color: #fff;
+}
+.lt-topBar a {
+    display: block;
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    color: #fff;
+    padding: 10px;
+    font-size: 18px;
+
+}
+.lt-topBar a:before {
+    content: '\f002';
+}
+
+/* ---------------------主体部分 start ------------------------ */
+.lt-container {
+    padding-top: 45px;
+    padding-bottom: 50px;
+}
+/* 鞋类 */
+.lt-container .cate {
+    padding: 0 10px;
+    margin-top: 10px;
+    overflow: hidden;
+}
+.lt-container .cate a {
+    width: 33.3333%;
+    float: left;
+}
+.cate a img {
+    display: block;
+    width: 100%;
+}
+
+/* 鞋橱 */
+.lt-active {
+    width: 100%;
+    margin-top: 15px;
+    padding: 0 10px;
+    border-top: 1px solid #ccc;
+    overflow: hidden;
+}
+.lt-active a.lt-active-left {
+    width: 67.1%;
+    float: left;
+    overflow: hidden;
+}
+.lt-active a.lt-active-left img {
+    width: 50%;
+    float: left;
+}
+
+.lt-active a.lt-active-right {
+    width: 32.9%;
+    float: right;
+}
+.lt-active a.lt-active-right img {
+    width: 100%;
+}
+
+/* 品牌 */
+.lt-brand {
+    width: 100%;
+    padding: 0 10px;
+}
+.lt-brand .lt-brand-title {
+    width: 100%;
+}
+.lt-brand .lt-brand-title img {
+    width: 100%;
+}
+.lt-brand ul {
+    width: 100%;
+    overflow: hidden;
+}
+.lt-brand ul li {
+    width: 25%;
+    float: left;
+}
+.lt-brand ul li a {
+    width: 100%;
+}
+.lt-brand ul li img {
+    width: 100%;
+} 
+
+/* 运动专区 */
+.lt-live {
+    width: 100%;
+    padding: 0 10px;
+}
+.lt-live .lt-live-title {
+    width: 100%;
+}
+.lt-live .lt-live-title img {
+    width: 100%;
+}
+/* .lt-live ul {
+    width: 100%;
+}
+.lt-live ul li {
+    width: 50%;
+    float: left;
+    overflow: hidden;
+    padding: 0 5px;
+    margin-bottom: 10px;
+}
+.lt-live ul li a {
+    width: 100%;
+    float: left;
+    box-shadow: 0 0 5px #ccc;
+    text-align: center;
+    padding: 10px 0;
+
+}
+.lt-live ul li a img {
+    width: 100%;
+} */
+.lt-live-box {
+    width: 100%;
+    overflow: hidden;
+}
+.lt-live-box a {
+    width: 50%;
+    float: left;
+    padding: 0 4px;
+    margin-bottom: 10px;
+}
+.lt-live-box a .box {
+    width: 100%;
+    /* box-shadow: 0 0 5px #ccc; */
+    border:1px solid #ccc;
+    text-align: center;
+    padding: 10px 0;
+}
+.lt-live-box a .box img {
+    width: 100%;
+}
+.lt-live-box a .box p {
+    padding: 0 10px;
+    margin-bottom: 10px;
+}
+.lt-live-box .price {
+    font-size: 12px;
+    color: #f30;
+    margin-right: 10px;
+}
+.lt-live-box .oldPrice {
+    font-size: 12px;
+    color: #ccc;
+    text-decoration: line-through;
+}
+.lt-live-box .button {
+    background: #006699;
+    color: #fff;
+}
+
+
+
+
+
+/* ---------------------主体部分  end ------------------------ */
+
+
+
+/* -------------------------固定底部 start---------------------------------- */
+.lt-foot {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background-color: #006699;
+    z-index: 10;
+}
+.lt-foot a {
+    width: 25%;
+    height: 100%;
+    color: #fff;
+    padding: 5px 0;
+    float: left;
+    text-align: center;
+}
+.lt-foot a.now {
+    color: darkorange;
+}
+
+
+
+.lt-foot a span {
+    width: 100%;
+    display: block;
+    font-size: 12px;
+    padding: 3px;
+    margin-top: 4px;
+}
+.lt-foot a:first-child:before {
+    content: '\f015';
+}
+.lt-foot a:nth-child(2):before {
+    content: '\f0c9';
+}
+.lt-foot a:nth-child(3):before {
+    content: '\f07a';
+}
+.lt-foot a:nth-child(4):before {
+    content: '\f007';
+}
+
+/* -------------------------固定底部 end ---------------------------------- */
