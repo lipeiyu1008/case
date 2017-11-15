@@ -43,7 +43,7 @@
   font-size: 14px;
 }
 
-.detail-size span:nth-last-child(-n+21) {
+.detail-size span+span {
   display: inline-block;
   width: 28px;
   height: 28px;

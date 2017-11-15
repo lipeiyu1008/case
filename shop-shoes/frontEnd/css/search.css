@@ -40,8 +40,17 @@ html,body {
   border-radius: 8px;
 }
 
-.lt-search .search-history {
+.lt-search .empty-history {
+  padding: 10px;
+  font-size: 18px;
+}
 
+.search-history-list .mui-pull-left {
+  width: 90%;
+}
+
+.lt-search .search-history {
+  display: none;
 }
 
 .lt-search .search-history-title {
@@ -109,5 +118,10 @@ html,body {
   width: 100%;
   padding: 10px;
 }
+
+.search-result .search-result-order a.active {
+  color: red;
+}
+
 
 
