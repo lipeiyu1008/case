@@ -54,6 +54,24 @@
   margin-bottom: 8px;
 }
 
+/* 数量加减 */
+.sub,.plus {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  text-align: center;
+  line-height: 25px;
+  border: 1px solid #ccc;
+  font-size: 28px;
+}
+.num {
+  display: inline-block;
+  padding: 0 8px;
+}
+
+
+
+
 
 
 
