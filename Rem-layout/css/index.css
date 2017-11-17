@@ -1,0 +1,256 @@
+html,
+body {
+  background-color: #f7f7f7;
+}
+a {
+  display: block;
+}
+header {
+  width: 100%;
+  height: 0.6875rem;
+  line-height: 0.6875rem;
+  text-align: center;
+  background-color: #f7f7f7;
+}
+header span {
+  color: #312326;
+  font-size: 16px;
+}
+header .top-left {
+  padding: 0 0.1875rem;
+  height: 100%;
+}
+header .top-left a {
+  height: 100%;
+  color: #d00397;
+}
+header .top-left a i {
+  position: relative;
+  top: 0.046875rem;
+}
+header .top-right {
+  padding: 0 0.1875rem;
+  height: 100%;
+  float: right;
+}
+header .top-right a {
+  height: 100%;
+}
+header .top-right a img {
+  height: 0.5rem;
+}
+.jingdian {
+  width: 100%;
+  padding-top: 0.15625rem;
+  padding-left: 0.125rem;
+  padding-right: 0.125rem;
+}
+.jingdian ul {
+  width: 100%;
+  font-size: 0;
+}
+.jingdian ul li {
+  display: inline-block;
+  width: 33.3333%;
+  box-sizing: border-box;
+  padding-right: 0.15625rem;
+  margin-bottom: 0.15625rem;
+}
+.jingdian ul li:nth-child(3),
+.jingdian ul li:nth-child(6) {
+  padding-right: 0;
+}
+.jingdian ul li:nth-child(3) a,
+.jingdian ul li:nth-child(6) a {
+  width: 100%;
+}
+.jingdian ul li:nth-child(3) a img,
+.jingdian ul li:nth-child(6) a img {
+  width: 95%;
+}
+.jingdian ul li a {
+  width: 100%;
+}
+.jingdian ul li a img {
+  width: 100%;
+}
+.jipiao {
+  width: 100%;
+  padding-bottom: 0.234375rem;
+}
+.jipiao ul {
+  width: 100%;
+  font-size: 0;
+}
+.jipiao ul li {
+  display: inline-block;
+  width: 25%;
+  border-top: 1px solid #d1d1d1;
+  border-right: 1px solid #d1d1d1;
+  border-bottom: 1px solid #d1d1d1;
+}
+.jipiao ul li:nth-child(4),
+.jipiao ul li:nth-child(8) {
+  border-right: none;
+}
+.jipiao ul li:nth-child(5),
+.jipiao ul li:nth-child(6),
+.jipiao ul li:nth-child(7),
+.jipiao ul li:nth-child(8) {
+  border-top: none;
+}
+.jipiao ul li a {
+  width: 100%;
+}
+.jipiao ul li a img {
+  width: 100%;
+}
+.lvyue {
+  width: 100%;
+  padding-bottom: 0.234375rem;
+}
+.lvyue ul {
+  width: 100%;
+  font-size: 0;
+  overflow: hidden;
+}
+.lvyue ul li {
+  float: left;
+  width: 50%;
+  box-sizing: border-box;
+}
+.lvyue ul li:nth-child(2) a {
+  box-sizing: border-box;
+  border-left: 1px solid #cdcdcd;
+  border-bottom: 1px solid #cdcdcd;
+}
+.lvyue ul li:first-child {
+  border-bottom: 1px solid #cdcdcd;
+}
+.lvyue ul li a {
+  width: 100%;
+}
+.lvyue ul li a img {
+  width: 100%;
+  vertical-align: middle;
+}
+.remen {
+  width: 100%;
+  background-color: #f1f1f1;
+  padding-bottom: 0.234375rem;
+  border-bottom: 1px solid #dddddd;
+}
+.remen h3 {
+  width: 100%;
+  padding-left: 0.28125rem;
+  height: 0.546875rem;
+  line-height: 0.546875rem;
+  background-color: #f1f1f1;
+  font-size: 0.25rem;
+  color: #9d4941;
+}
+.remen ul {
+  width: 100%;
+}
+.remen ul li {
+  width: 100%;
+  border-bottom: 1px solid #dddddd;
+}
+.remen ul li a {
+  width: 100%;
+}
+.remen ul li a img {
+  width: 100%;
+}
+.duzhoumo {
+  width: 100%;
+  background-color: #f1f1f1;
+}
+.duzhoumo .title {
+  width: 100%;
+  height: 0.6875rem;
+}
+.duzhoumo .title ul {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.duzhoumo .title ul li {
+  float: left;
+  width: 50%;
+  height: 100%;
+  padding-left: 1.875rem;
+}
+.duzhoumo .title ul li:first-child a {
+  border-bottom: 2px solid #d3079e;
+}
+.duzhoumo .title ul li a {
+  height: 100%;
+  width: 1.25rem;
+  line-height: 0.6875rem;
+  text-align: center;
+  box-sizing: border-box;
+}
+.duzhoumo .main {
+  width: 100%;
+}
+.duzhoumo .main ul {
+  width: 100%;
+  overflow: hidden;
+}
+.duzhoumo .main ul li {
+  width: 100%;
+  margin-bottom: 0.25rem;
+  border-bottom: 1px solid #dddddd;
+}
+.duzhoumo .main ul li a {
+  width: 100%;
+}
+.duzhoumo .main ul li a img {
+  width: 100%;
+}
+.duzhoumo .main ul li a h4 {
+  height: 0.625rem;
+  line-height: 0.625rem;
+  font-size: 0.234375rem;
+  color: #000;
+}
+.duzhoumo .main ul li a p {
+  height: 0.625rem;
+  font-size: 0.3125rem;
+  color: #58107f;
+}
+.chakangengduo {
+  width: 100%;
+  height: 0.625rem;
+  line-height: 0.625rem;
+  text-align: center;
+  border-bottom: 1px solid #dddddd;
+}
+.chakangengduo h3 {
+  color: #555555;
+}
+.chakangengduo h3 i {
+  position: relative;
+  top: 0.046875rem;
+}
+footer {
+  width: 100%;
+  height: 0.625rem;
+  background-color: #d3079e;
+}
+footer ul {
+  width: 100%;
+  padding: 0 0.3125rem;
+}
+footer ul li a {
+  color: #fff;
+  line-height: 0.625rem;
+  font-size: 0.34375rem;
+  font-weight: 700;
+  font-family: '微软雅黑';
+  margin-right: 0.3125rem;
+}
+footer ul li:last-child a {
+  margin-right: 0;
+}
