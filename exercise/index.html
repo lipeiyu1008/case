@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        正在热聊中:
+        <ul>
+            {{each msgs}}
+            <li>
+                {{$value.nickname}}说:{{$value.msg}}
+            </li>
+            {{/each}}
+        </ul>
+    </div>
+    <form method="post" action="/sendMsg">
+        <input type="text" name="nickname">说:
+        <input type="text" name="msg">
+        <input type="submit" value="发送">
+    </form>
+</body>
+</html>
