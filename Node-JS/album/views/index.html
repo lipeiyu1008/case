@@ -44,7 +44,7 @@
 
   {{each album}}
     <div class="col-xs-6 col-md-3">
-      <a href="" class="thumbnail">
+      <a href="/showDir?dir={{$value.dir}}" class="thumbnail">
         <img src="/public/img/icon.png" alt="">
       </a>
       <div class="caption">
@@ -61,7 +61,7 @@
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <form action="" method="">
+      <form action="/albumName" method="post">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                     aria-hidden="true">&times;</span></button>
