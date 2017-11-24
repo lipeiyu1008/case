@@ -6,7 +6,8 @@ const db = require('../models/db');
 const formidable = require('formidable');
 //引入path核心对象
 const path = require('path');
-
+//引入配置对象
+const config = require('../config');
 
 
 /**
@@ -18,20 +19,8 @@ const path = require('path');
  */
 exports.addMusic = (req,res,next)=>{
 
-    //判断是否存在session上的user
-    if(!req.session.user){
-        res.send(`
-                 请去首页登录
-                 <a href="/user/login">点击</a>
-            `);
-        return;
-    }
-    // console.log(req.session.user);
-    
-   
-
     var form = new formidable.IncomingForm();
-    form.uploadDir = path.join(__dirname,'public/files');
+    form.uploadDir = path.join(config.rootPath,'public/files');
     form.parse(req, function(err, fields, files) {
         if(err) return next(err);
         // { title: '告白气球', singer: '周杰伦', time: '03:00' }
@@ -72,7 +61,8 @@ exports.addMusic = (req,res,next)=>{
                 msg:'添加音乐成功'
             });
         });
-    });};
+    });
+};
 /**
  * [更新音乐]
  * @param  {[type]}   req  [description]
@@ -81,16 +71,8 @@ exports.addMusic = (req,res,next)=>{
  * @return {[type]}        [description]
  */
 exports.updateMusic = (req,res,next)=>{
-    //判断是否存在session上的user
-    if(!req.session.user){
-        res.send(`
-                 请去首页登录
-                 <a href="/user/login">点击</a>
-            `);
-        return;
-    }
     var form = new formidable.IncomingForm();
-    form.uploadDir = path.join(__dirname,'public/files');
+    form.uploadDir = path.join(config.rootPath,'public/files');
     form.parse(req, function(err, fields, files) {
         if(err) return next(err);
         //获取6个字段中的3个
@@ -123,4 +105,63 @@ exports.updateMusic = (req,res,next)=>{
                 msg:'更新音乐成功'
             });
         });
-    });};
+    });
+};
+/**
+ * 删除音乐
+ * @param  {[type]}   req  [description]
+ * @param  {[type]}   res  [description]
+ * @param  {Function} next [description]
+ * @return {[type]}        [description]
+ */
+exports.delMusic = (req,res,next)=>{
+
+    //获取用户id
+    let userid = req.session.user.id;
+
+    //1:接收参数
+    let musicId = req.query.id;
+    //2:db删除数据
+    db.q('delete from musics where id = ? and uid = ?',[musicId,userid],(err,result)=>{
+        if(err) return next(err);
+        // console.log(result);
+        //判断是否删除成功
+        if(result.affectedRows == 0){
+            //歌曲不存在
+            return res.json({
+                code:'002',msg:'歌曲不存在'
+            });
+        }
+        //删除成功
+        res.json({
+            code:'001',msg:'删除成功'
+        });
+    });
+};
+/**
+ * 添加音乐
+ * @param  {[type]}   req  [description]
+ * @param  {[type]}   res  [description]
+ * @param  {Function} next [description]
+ * @return {[type]}        [description]
+ */
+exports.showAddMusic = (req,res,next)=>{
+    res.render('add.html');
+}
+/**
+ * 音乐列表
+ * @param  {[type]}   req  [description]
+ * @param  {[type]}   res  [description]
+ * @param  {Function} next [description]
+ * @return {[type]}        [description]
+ */
+exports.showListMusic = (req,res,next)=>{
+    let userId = req.session.user.id;
+    //以用户id作为查询条件查询音乐表
+    db.q('select * from musics where uid = ?',[userId],(err,musics)=>{
+        res.render('list.html',{
+            //循环，给每个元素加一个索引，利用模板引擎的index属性+1
+            musics, //musics:musics ES6简写
+        })
+    })
+}

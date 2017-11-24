@@ -1,20 +1,28 @@
 'use strict';
+const config = require('./config');
 // 1:引入express对象
 const express = require('express');
 // 2:创建服务器
 let app = express();
 // 3:开启服务器监听端口
-app.listen(9999,()=>{
-    console.log('服务器启动在9999端口');
+app.listen(config.web_port,config.web_host,()=>{
+    console.log('34期服务器启动在9999端口');
 });
 //引入处理post请求体对象
 const bodyParser = require('body-parser');
 //引入session
 const session = require('express-session');
-const router = require('./web_router');
+const api_router = require('./web_router');
+const user_router = require('./user_router');
+const music_router = require('./music_router');
+
 
 //配置模板引擎
 app.engine('html', require('express-art-template') );
+
+
+//处理静态资源
+app.use('/public',express.static('./public'));
 
 //中间件配置行为列表
 //第-1件是:在路由使用session之前，先生产session
@@ -31,8 +39,24 @@ app.use(session({
 app.use(bodyParser.urlencoded({ extended: false }));
 // parse application/json
 app.use(bodyParser.json());
-//第一件事: 路由
-app.use('/api',router);
+//在路由中间件执行之前必经之路(url中包含music)
+app.use(/\/music|\/api\/.*music/,(req,res,next)=>{
+      //判断是否存在session上的user
+    if(!req.session.user){
+        return res.send(`
+                 请去首页登录
+                 <a href="/user/login">点击</a>
+            `);
+     }
+     //比如当前请求是 /music/add-music
+     next();
+});
+//第一件事: 路由（数据接口）
+app.use('/api',api_router);
+//用户页面路由
+app.use('/user',user_router);
+//音乐页面路由
+app.use('/music',music_router);
 // 第二件事: 错误处理
 app.use((err,req,res,next)=>{
     console.log(err);

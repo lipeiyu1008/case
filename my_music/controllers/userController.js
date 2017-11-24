@@ -135,6 +135,41 @@ userController.doLogin = (req,res,next)=>{
             code:'001',msg:'登录成功'
         })
     })};
+/**
+ * [退出]
+ * @param  {[type]}   req  [description]
+ * @param  {[type]}   res  [description]
+ * @param  {Function} next [description]
+ * @return {[type]}        [description]
+ */
+userController.logout = (req,res,next)=>{
+    //从session中删除user
+    req.session.user = null;
+    res.json({
+        code:'001',
+        msg:'退出成功'
+    });
+}
+/**
+ * [显示登录页]
+ * @param  {[type]}   req  [description]
+ * @param  {[type]}   res  [description]
+ * @param  {Function} next [description]
+ * @return {[type]}        [description]
+ */
+userController.showLogin = (req,res,next)=>{
+    res.render('login.html');
+}
+/**
+ * [显示注册页]
+ * @param  {[type]}   req  [description]
+ * @param  {[type]}   res  [description]
+ * @param  {Function} next [description]
+ * @return {[type]}        [description]
+ */
+userController.showRegister = (req,res,next)=>{
+    res.render('register.html');
+}
 
 
 //向外导出
