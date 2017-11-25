@@ -51,6 +51,13 @@ app.use(/\/music|\/api\/.*music/,(req,res,next)=>{
      //比如当前请求是 /music/add-music
      next();
 });
+//传递一个值给art-template
+app.use((req,res,next)=>{
+  //locals所挂载的数据，就是art-template渲染时直接用的
+  app.locals.user = req.session.user;
+  //放行
+  next();
+});
 //第一件事: 路由（数据接口）
 app.use('/api',api_router);
 //用户页面路由

@@ -3,14 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>传智音乐</title>
-    <link href="/public/img/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-    <link rel="stylesheet" type="text/css" href="/public/vender/bootstrap/dist/css/bootstrap.css" />
-    <link rel="stylesheet" type="text/css" href="/public/css/icon.css" />
-    <link href="/public/css/common.css" rel="stylesheet" type="text/css" />
-    <link href="/public/css/link.css" rel="stylesheet" type="text/css" />
-    <link href="/public/css/style.css" rel="stylesheet" type="text/css" />
-    <script src="/public/vender/jquery/dist/jquery.js" type="text/javascript"></script>
-    <script src="/public/vender/bootstrap/dist/js/bootstrap.js"></script>
+    {{include './particals/links.html' }}
 
      <style type="text/css">
     #box {
@@ -28,42 +21,20 @@
 
     #lrc {
         margin-top: 130px;
-        width: 100%;
         position: absolute;
         text-align: center;
         padding-top: 60px;
     }
 
     .gl {
-        color: blue;
-        font-weight: 700;
-        background-color: hotpink;
+        color: hotpink;
+        background-color: red;
     }
     </style>
 </head>
 
 <body>
-    <div class="aw-top-menu-wrap">
-        <div class="container1">
-            <!-- 用户栏 -->
-            <div class="aw-user-nav">
-                <a href="" class="aw-user-nav-dropdown">
-                </a>
-                <div class="aw-dropdown dropdown-list pull-right">
-                    <ul class="aw-dropdown-list">
-                        <li><a href="/logout"><i class="icon icon-logout"></i> 退出</a></li>
-                    </ul>
-                </div>
-                <!-- 登陆&注册栏 -->
-                <span>
-        <a class="register btn btn-normal btn-success" href="">注册</a>
-        <a class="login btn btn-normal btn-primary" href="">登录</a>
-      </span>
-                <!-- end 登陆&注册栏 -->
-            </div>
-            <!-- end 用户栏 -->
-        </div>
-    </div>
+    {{include './particals/header.html'}}
     <div class="container">
         <div class="page-header">
             <h1>首页--<small>我的音乐</small></h1>
@@ -109,101 +80,87 @@
             </div>
         </div>
     </div>
-    <div class="aw-footer-wrap">
-        <div class="aw-footer">
-            Copyright © 2016, All Rights Reserved</span>
-            <span class="hidden-xs">Powered By <a href="http://www.itcast.cn" target="blank">ITcast</a></span>
-        </div>
-    </div>
+{{include './particals/footer.html'}}
 
     <script type="text/javascript">
         //解析歌词对象
-        function parseObj(str) {
+        function parseObj(str){
             var obj = {};
             //按照换行切割字符串
             var lines = str.split('\n');
-            // console.log(lines);
-            //正则已匹配正确时长歌词
+            // [00:04.19]词：方文山
+            // /\[(\d{2})\:(\d{2})\.(\d{2})\](.*)/
             var regex = /\[(\d{2})\:(\d{2})\.(\d{2})\](.*)/;
-
-            //遍历切割后的数组
-            for (let i = 0; i < lines.length; i++) {
-                var line = lines[i];
-                var result = regex.exec(line);
-                if (!result) continue;
-                // console.log(result);
-                //将时间全部转换为秒
-                var minute = (result[1] - 0) * 60;//分
-                var second = result[2] - 0 ;//秒
-                var hs = Math.round(result[3] / 100);//毫秒
-                var time = minute + second + hs;
-                obj[time] = result[4];
-                
-                
+            //遍历
+            for (var i = 0; i < lines.length; i++) {
+               var line = lines[i];
+               var result = regex.exec(line);
+               if(!result)continue;
+               //统计时间作为对象的key,歌词作为对象的value
+               // 1:"00"2:"00"3:"98"4:"告白气球"
+               var minute = (result[1] - 0) * 60 ;//分
+               var second = result[2] - 0;//秒
+               var hs = Math.round(result[3]/100);//毫秒
+               var time = minute + second + hs;
+               obj[time] = result[4];
             }
-            //输出对象obj
-            // console.log(obj);
-            return obj;
 
+            return obj;
         }
         //根据歌词对象生成DOM
-        function createDOM(obj) {
+        function createDOM(obj){
             var str = '';
-            for(var time in obj) {
-                str += '<p time='+time+'>' + obj[time] + '</p>'
-                
+            for(var time in obj){
+                str += '<p time=' + time + '>' + obj[time] + '</p>';
             }
             return str;
         }
-        //根据播放时间,设置滚动
-        function scroll(lrcObj) {
-            $('#audio').on('timeupdate',function (e) {
-                //四舍五入,更容易匹配
-                var jumpPoint = Math.round(e.target.currentTime);
-                // console.log(jumpPoint);
-                if(!lrcObj[jumpPoint]) return;
-                //查找元素
-                var p = $('#lrc').find('p[time='+jumpPoint+']');
-                var minusHeight = $('#lrc').offset().top - p.offset().top;
-                p.addClass('gl').siblings().removeClass('gl');
-                $('#lrc').animate({
-                    top:minusHeight
-                },'slow')
-
-
-            })
+        //滚动
+        function scroll(lrcObj){
+            $('#audio').on('timeupdate',function(e){
+                        //四舍五入秒，更容易匹配上对象，能发生滚动
+                        var jumpPoint = Math.round(e.target.currentTime);
+                        //判断能否滚动
+                        if(!lrcObj[jumpPoint])return;
+                        //通过事件查找元素
+                        var p = $('#lrc').find('p[time=' + jumpPoint + ']');
+                        var minusHeight = $('#lrc').offset().top - p.offset().top;
+                        p.addClass('gl').siblings().removeClass('gl');
+                        $('#lrc').animate({
+                            top:minusHeight//负数向上更多
+                        },'slow');
+                        
+            });
         }
-
-
-
-
-        //点击事件
-        $('.ply').on('click',function() {
-           var $this = $(this);
-           var file = $this.attr('file');
-           var filelrc = $this.attr('filelrc');
-           //设置播放器src地址,开始播放
-            // $('#audio').attr('src',file);
-
+        // 给所有的span标签添加点击事件
+        $('.ply').on('click',function(){
+            var $span = $(this);
+            var file = $span.attr('file');
+            var filelrc = $span.attr('filelrc');
+         
+        
             //先请求歌词文件
             $.ajax({
-                type:'get',
                 url:filelrc,
-                success:function(str) {
+                type:'get',
+                success:function(str){
                     //解析歌词对象    
                     var lrcObj = parseObj(str);
                     //歌词对象生成DOM
                     var htmlStr = createDOM(lrcObj);
                     $('#lrc').html(htmlStr);
-
                     //添加播放器的事件更新事件，滚动
                     scroll(lrcObj);
-
+                     //播放音乐
                     $('#audio').attr('src',file);
+
                 }
             })
 
+            
+            
 
+              
 
 
         })

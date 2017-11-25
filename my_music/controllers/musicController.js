@@ -162,6 +162,7 @@ exports.showListMusic = (req,res,next)=>{
         res.render('list.html',{
             //循环，给每个元素加一个索引，利用模板引擎的index属性+1
             musics, //musics:musics ES6简写
+            // user:req.session.user
         })
     })
 }
