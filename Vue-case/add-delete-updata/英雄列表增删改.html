@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div class="app"></div>
+    <script src="../vue.js"></script>
+
+    <script>
+        //启动
+
+        new Vue({
+            el:'.app',
+            template:`
+                <div>
+                    <ul>
+                        <li v-for="(hero,index) in heros" :key="index" :style="'background-color:' + (index%2 == 0 ? 'pink':'skyblue')">
+                            {{hero.id}} {{hero.name}}
+                        </li>
+                    </ul>
+                    <!-------添加英雄---->
+                    <div style="background-color:hotpink">
+                        ID:<input type="text" v-model="addId">
+                        英雄名称:<input type="text" v-model="addName">
+                        <button @click="addHero">添加英雄</button>
+                    </div>
+                    <!-------更改英雄---->
+                    <div style="background-color:gold">
+                        ID:<input type="text" v-model="updataId">
+                        英雄名称:<input type="text" v-model="updataName">
+                        <button @click="updataHero">更改英雄</button>
+                    </div>
+                    <!-------删除英雄---->
+                    <div style="background-color:pink">
+                        ID:<input type="text" v-model="delId">
+                        
+                        <button @click="delHero(delId)">删除英雄</button>
+                    </div>
+                </div>
+            `,
+            methods:{
+                addHero:function() {
+                    this.heros.push({
+                        id:this.addId,
+                        name:this.addName
+                    })
+                    this.addId='',
+                    this.addName=''
+
+                },
+                updataHero:function() {
+                    //通过输入的id值,检测数组中是否有该值
+                    var hero = this.heros.find(err => err.id == this.updataId);
+                    if(!hero) {
+                        alert('没有这个英雄');
+                        return;
+                    }
+                    hero.name = this.updataName;
+                    this.updataId = '';
+                    this.updataName = '';
+                },
+                delHero:function(id) {
+                    var index = this.heros.findIndex(err => err.id == id);
+                    if(index == -1) {
+                        alert('没有这个英雄');
+                        return
+                    }
+                    this.heros.splice(index,1);
+                }
+            },
+            data:function() {
+                return {
+                    heros:[{id:1,name:'李白'},{id:2,name:'不知火舞'},{id:3,name:'周瑜'},{id:4,name:'貂蝉'}],
+                    addId:'',
+                    addName:'',
+                    updataId:'',
+                    updataName:'',
+                    delId:'',
+                    
+
+                }
+            }
+        })
+
+
+
+
+    </script>
+
+
+</body>
+</html>
