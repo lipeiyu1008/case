@@ -41,4 +41,11 @@ export default {
   }
 };
 </script>
+<style scoped>
+ .mint-tabbar{
+    position: fixed;
+    bottom:0;
+   } 
+</style>
+
 
