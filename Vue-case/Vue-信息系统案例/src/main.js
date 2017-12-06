@@ -40,11 +40,18 @@ import MyLi from './components/commons/MyLi.vue';
 import NewsList from './components/News/NewsList.vue';
 import NewsDetail from './components/News/NewsDetail.vue';
 import NavBar from './components/commons/NavBar.vue';
+
 import PhotoList from './components/PhotoList/PhotoList.vue';
 import PhotoDetail from './components/PhotoDetail/PhotoDetail.vue';
+import Comment from './components/commons/Comment.vue';
+import GoodsList from './components/Goods/GoodsList.vue';
+import GoodsDetail from './components/Goods/GoodsDetail.vue';
+import MySwipe from './components/commons/MySwipe.vue';
 Vue.component(MyUl.name,MyUl);
 Vue.component(MyLi.name,MyLi);
 Vue.component(NavBar.name,NavBar);
+Vue.component(Comment.name,Comment);
+Vue.component(MySwipe.name,MySwipe);
 
 
 //注册全局组件------结束
@@ -68,6 +75,9 @@ router.addRoutes([
     {name:'news.detail',path:'/news/detail',component:NewsDetail},//新闻详情
     {name:'photo.list',path:'/photo/list/:categoryId',component:PhotoList},//图文分享
     {name:'photo.detail',path:'/photo/detail/:imgId',component:PhotoDetail},//图文详情
+    {name:'test',path:'/test',component:Comment},//测试
+    {name:'goods.list',path:'goods/list',component:GoodsList},//商品列表
+    {name:'goods.detail',path:'goods/detail/:goodsId',component:GoodsDetail},//商品详情
 ])
 
 //引入路由-------结束

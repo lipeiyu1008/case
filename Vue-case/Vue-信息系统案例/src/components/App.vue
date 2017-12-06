@@ -1,10 +1,10 @@
 <template>
   <div>
        <!-- 头部 -->
-      <mt-header title="信息管理系统"></mt-header>
-      <router-view></router-view>
+      <mt-header title="信息管理系统" ref="header"></mt-header>
+      <router-view :appRefs="$refs"></router-view>
       <!-- 底部导航 -->
-      <mt-tabbar v-model="selected">
+      <mt-tabbar v-model="selected" ref="footer">
               <mt-tab-item id="home">
                 <img slot="icon" src="../static/img/index.png">
                 首页
