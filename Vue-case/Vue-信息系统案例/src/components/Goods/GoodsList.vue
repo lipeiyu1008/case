@@ -54,10 +54,13 @@
                         });
                         //禁止下拉刷新函数调用
                         this.allLoaded = true;
-                        return;
+                        //不跳出循环，还需要通知回到pull初始状态，否则有Bug
+                        // return;
                     }
                     this.goodsList = this.goodsList.concat(res.data.message);
                     this.page++;
+                    //从loading状态通知回到pull初始状态
+                    this.$refs.loadmore.onBottomLoaded();
                 })
                 .catch(err => console.log(err))
             },

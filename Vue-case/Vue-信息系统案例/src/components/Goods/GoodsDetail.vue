@@ -13,15 +13,17 @@
                 </span></li>
                 <li class="price-li">市场价：
                     <s>￥{{goodsInfo.market_price}}</s> 销售价：<span>￥{{goodsInfo.sell_price}}</span></li>
-                <li class="number-li">购买数量：<span>-</span><span>1</span><span>+</span></li>
+                <li class="number-li">购买数量：<span @click="sub">-</span><span>{{pickNum}}</span><span @click="odd">+</span></li>
                 <li>
                     <mt-button type="primary">立即购买</mt-button>
-                    <mt-button type="danger">加入购物车</mt-button>
+                    <mt-button type="danger" @click="addShopcart">加入购物车</mt-button>
                 </li>
             </ul>
         </div>
-       
-            <div class="ball"></div>
+                <!-- 过渡效果必须被内置组件transition包裹。v是指的其name属性 -->
+            <transition name="myball" v-on:after-enter="afterEnter">
+                <div class="ball" v-if="showBall"></div>
+            </transition>
         <div class="product-props">
             <ul>
                 <li>商品参数</li>
@@ -43,12 +45,57 @@
     </div>
 </template>
 <script>
+import GoodsTools from '../commons/GoodsTools.js';
+import VueBus from '../commons/VueBus.js';
+
 export default {
     data() {
         return {
             goodsInfo:{},//商品详情数据
-            swipeUrl:`getthumimages/${this.$route.params.goodsId}`
+            swipeUrl:`getthumimages/${this.$route.params.goodsId}`,
+            showBall:false,
+            pickNum:1,//购物车数量
         }
+    },
+    methods:{
+        addShopcart() {
+            this.showBall = true;
+
+            GoodsTools.addOrUpdate({
+                id:this.goodsInfo.id,
+                num:this.pickNum
+            })
+
+
+            // GoodsTools.addOrUpdate({
+            //     id:88,num:50
+            // })
+            // GoodsTools.addOrUpdate({
+            //     id:88,num:40
+            // })
+            // console.log(GoodsTools.getGoods())
+            // console.log(GoodsTools.getTotalCount())
+
+
+
+        },
+        afterEnter() {
+            //动画完毕，将小球移除
+            this.showBall = false;
+            VueBus.$emit('addShopcart',this.pickNum);
+
+
+        },
+        sub() {
+            if(this.pickNum < 2) return;
+            this.pickNum --;
+        },
+        odd() {
+            this.pickNum ++;
+        }
+
+
+
     },
     created() {
         let goodsId = this.$route. params.goodsId;
@@ -64,7 +111,12 @@ export default {
 
 </script>
 <style scoped>
-.ball-enter-active {
+/* 移除中设置透明，清楚Bug */
+.myball-leave{
+    opacity: 0;
+}
+
+.myball-enter-active {
     animation: bounce-in 1s;
 }
 
