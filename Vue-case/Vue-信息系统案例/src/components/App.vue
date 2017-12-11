@@ -39,8 +39,10 @@ export default {
   created() {
     VueBus.$on('addShopcart',pickNum => {
       this.num += pickNum;
+    });
+    VueBus.$on('changeTotalCount',num => {
+      this.num = num;
     })
-
 
 
   },
